@@ -9,11 +9,8 @@ class MediaController extends Kirby\Panel\Controllers\Base {
 
   public function index() {
 
-    $media = new Media;
-
-    $content = new View('view/index', [
-      'media' => $media->media
-    ]);
+    $media   = new Media;
+    $content = new View('view/index', ['files' => $media->files]);
     $content->_root = dirname(__DIR__);
 
     return $this->layout('app', [

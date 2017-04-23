@@ -6,9 +6,8 @@ namespace Kirby\Panel\Models;
 class Media {
 
   public function __construct() {
-
-    $this->media = panel()->site()->index()->files();
-
+    $this->index = panel()->site()->index();
+    $this->files = $this->index->files();
   }
 
   public function topbar($topbar) {
