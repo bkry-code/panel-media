@@ -2,17 +2,17 @@
 
 kirby()->set('widget', 'media', __DIR__ . '/widget');
 
-require 'controller/media.php';
-require 'model/media.php';
+if(function_exists('panel') && $panel = panel()) {
+  $panel->routes = array_merge([
+    [
+      'pattern' => 'media',
+      'action'  => function() {
+        require 'core/controller.php';
+        require 'core/model.php';
 
-
-panel()->routes = array_merge([
-  [
-    'pattern' => 'media',
-    'action'  => function() {
-      $media = new MediaController;
-      echo $media->index();
-    },
-    'method'  => 'GET|POST'
-  ],
-], panel()->routes);
+        echo MediaController::index();
+      },
+      'method'  => 'GET|POST'
+    ],
+  ], $panel->routes);
+}
