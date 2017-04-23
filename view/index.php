@@ -3,19 +3,19 @@
   <h2 class="hgroup cf">
     <span>
       Media for <a href="<?php __(purl('options')) ?>"><?php __(site()->title()) ?></a>
-      <span class="counter">( <?= $media->count() ?> )</span>
+      <span class="counter">( <?= $files->count() ?> )</span>
     </span>
 
   </h2>
 
-  <?php if($media->count()): ?>
+  <?php if($files->count()): ?>
   <div class="files">
 
     <div class="grid">
 
       <?php $currentPage = null ?>
 
-      <?php foreach($media as $file): ?><!--
+      <?php foreach($files as $file): ?><!--
    --><div class="grid-item" id="<?php __($file->filename()) ?>">
          <div class="file-info" style="padding-left: 0;">
            <?php if($currentPage !== $file->page()) : ?>

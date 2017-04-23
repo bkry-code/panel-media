@@ -1,18 +1,21 @@
 <?php
 
+$title = 'Media files (' . site()->index()->files()->count() . ')';
+
 return [
-  'title' => 'Media',
+  'title' => [
+    'text'       => $title,
+    'link'       => purl('media'),
+    'compressed' => true
+  ],
   'options' => [
     [
-      'text' => 'All media',
-      'icon' => 'image',
+      'text' => 'Show all',
+      'icon' => 'th',
       'link' => purl('media')
     ]
   ],
   'html' => function() {
-
-   return tpl::load(__DIR__ . DS . 'media.html.php', [
-     'count' => site()->index()->files()->count(),
-   ]);
+    return false;
   }
 ];
