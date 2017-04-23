@@ -7,7 +7,7 @@ use Kirby\Panel\Models\Media;
 
 class MediaController extends Kirby\Panel\Controllers\Base {
 
-  public static function index() {
+  public function index() {
 
     $media   = new Media;
     $content = new View('core/view', ['files' => $media->files]);

@@ -10,7 +10,8 @@ if(function_exists('panel') && $panel = panel()) {
         require 'core/controller.php';
         require 'core/model.php';
 
-        echo MediaController::index();
+        $media = new MediaController;
+        echo $media->index();
       },
       'method'  => 'GET|POST'
     ],
