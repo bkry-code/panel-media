@@ -7,10 +7,10 @@ use Kirby\Panel\Models\Media;
 
 class MediaController extends Kirby\Panel\Controllers\Base {
 
-  public function index() {
+  public static function index() {
 
     $media   = new Media;
-    $content = new View('view/index', ['files' => $media->files]);
+    $content = new View('core/view', ['files' => $media->files]);
     $content->_root = dirname(__DIR__);
 
     return $this->layout('app', [
